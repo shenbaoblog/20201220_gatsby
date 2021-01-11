@@ -1,6 +1,19 @@
 module.exports = {
   siteMetadata: {
-    title: "20201220_gatsby",
+    title: `ESSENTIALS`,
+    description: `おいしい食材と食事を探求するサイト`,
+    lang: `ja`,
   },
-  plugins: [],
+  plugins: [
+    `gatsby-transformer-sharp`,
+    'gatsby-plugin-sharp',
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `images`,
+        path: `${__dirname}/src/images/`,
+      },
+    },
+    `gatsby-plugin-react-helmet`
+  ],
 };

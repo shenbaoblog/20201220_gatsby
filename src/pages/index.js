@@ -1,139 +1,51 @@
-import * as React from "react"
+import * as React from "react";
+import { graphql } from "gatsby";
+import Img from "gatsby-image";
+import Layout from "../components/layout";
 
-// styles
-// const pageStyles = {
-//   color: "#232129",
-//   padding: "96px",
-//   fontFamily: "-apple-system, Roboto, sans-serif, serif",
-// }
-// const headingStyles = {
-//   marginTop: 0,
-//   marginBottom: 64,
-//   maxWidth: 320,
-// }
-// const headingAccentStyles = {
-//   color: "#663399",
-// }
-// const paragraphStyles = {
-//   marginBottom: 48,
-// }
-// const codeStyles = {
-//   color: "#8A6534",
-//   padding: 4,
-//   backgroundColor: "#FFF4DB",
-//   fontSize: "1.25rem",
-//   borderRadius: 4,
-// }
-// const listStyles = {
-//   marginBottom: 96,
-//   paddingLeft: 0,
-// }
-// const listItemStyles = {
-//   fontWeight: "300",
-//   fontSize: "24px",
-//   maxWidth: "560px",
-// }
-
-// const linkStyle = {
-//   color: "#8954A8",
-//   fontWeight: "bold",
-//   fontSize: "16px",
-//   verticalAlign: "5%",
-// }
-
-// const docLinkStyle = {
-//   ...linkStyle,
-//   listStyleType: "none",
-//   marginBottom: 24,
-// }
-
-// const descriptionStyle = {
-//   color: "#232129",
-//   fontSize: "14px",
-// }
-
-// const docLink = {
-//   text: "Documentation",
-//   url: "https://www.gatsbyjs.com/docs/",
-//   color: "#8954A8",
-// }
-
-
-// // data
-// const links = [
-//   {
-//     text: "Tutorial",
-//     url: "https://www.gatsbyjs.com/docs/tutorial/",
-//     description:
-//       "A great place to get started if you're new to web development. Designed to guide you through setting up your first Gatsby site.",
-//     color: "#E95800",
-//   },
-//   {
-//     text: "How to Guides",
-//     url: "https://www.gatsbyjs.com/docs/how-to/",
-//     description:
-//       "Practical step-by-step guides to help you achieve a specific goal. Most useful when you're trying to get something done.",
-//     color: "#1099A8",
-//   },
-//   {
-//     text: "Reference Guides",
-//     url: "https://www.gatsbyjs.com/docs/reference/",
-//     description:
-//       "Nitty-gritty technical descriptions of how Gatsby works. Most useful when you need detailed information about Gatsby's APIs.",
-//     color: "#BC027F",
-//   },
-//   {
-//     text: "Conceptual Guides",
-//     url: "https://www.gatsbyjs.com/docs/conceptual/",
-//     description:
-//       "Big-picture explanations of higher-level Gatsby concepts. Most useful for building understanding of a particular topic.",
-//     color: "#0D96F2",
-//   },
-//   {
-//     text: "Plugin Library",
-//     url: "https://www.gatsbyjs.com/plugins",
-//     description:
-//       "Add functionality and customize your Gatsby site or app with thousands of plugins built by our amazing developer community.",
-//     color: "#000000",
-//   },
-// ]
-
-// const hello = "こんにちは"
+import SEO from "../components/seo";
 
 // markup
-const IndexPage = () => {
+const IndexPage = ({ data }) => {
   return (
-    <div>
-      <header className="header">
-        <div className="container">
-          <div className="site">
-            <a href="base-index.html">
-              <img src="/images/logo.svg" alt="ESSENTIALS" />
-            </a>
-          </div>
-          <nav className="nav">
-            <ul>
-              <li><a href="base-index.html">TOP</a></li>
-              <li><a href="base-about.html">ABOUT</a></li>
-            </ul>
-          </nav>
-        </div>
-      </header>
+    <Layout>
+      <SEO />
       <section className="hero">
         <figure>
-          <img src="/images/hero.jpg" alt="" />
+          <Img
+            fluid={data.hero.childImageSharp.fluid}
+            alt=""
+            style={{ height: "100%" }}
+          />
+          {/* <img src="/images/hero.jpg" alt="" /> */}
         </figure>
         <div className="catch">
-          <h1>There is no love sincerer than<br /> the love of food.</h1>
+          <h1>
+            There is no love sincerer than
+            <br /> the love of food.
+          </h1>
           <p>食物を愛するよりも誠実な愛はない ― バーナード・ショー</p>
         </div>
         <div className="wave">
-          <img src="/images/wave.svg" alt="" />
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 1366 229.5"
+            fill="#fff"
+          >
+            <path
+              d="M1369,6.3C1222.5-12.2,1189.5,8,919.2,96.6C665,179.8,160,141.7-2,53.1v150l1371-14.2V6.3z"
+              opacity=".53"
+            />
+            <path d="M1369 229.5V55.8c-9.5-2.4-19.2-4.4-28.9-5.8-196.9-29.9-203.4-15.8-503.9 82.6-219.8 72-627.6 53.2-838.2-10.5v107.4h1371z" />
+          </svg>
+          {/* <img src="/images/wave.svg" alt="" /> */}
         </div>
       </section>
       <section className="food">
         <div className="container">
-          <h2 className="bar">Food <span>Essence</span></h2>
+          <h2 className="bar">
+            Food <span>Essence</span>
+          </h2>
           <div className="details">
             <div className="detail">
               <figure>
@@ -141,23 +53,41 @@ const IndexPage = () => {
               </figure>
               <h3>フルーツ</h3>
               <p>FRUIT</p>
-              <p>甘くてすっぱくておいしい果実たち。<br />旬のフルーツを満喫します。</p>
+              <p>
+                甘くてすっぱくておいしい果実たち。
+                <br />
+                旬のフルーツを満喫します。
+              </p>
             </div>
             <div className="detail">
               <figure>
-                <img src="/images/grain.jpg" alt="" />
+                <Img fluid={data.grain.childImageSharp.fluid} alt="" />
+                {/* <img src="/images/grain.jpg" alt="" /> */}
               </figure>
               <h3>穀物</h3>
               <p>GRAIN</p>
-              <p>食事の基本となる穀物。<br />毎日の活動のエネルギー源になります。</p>
+              <p>
+                食事の基本となる穀物。
+                <br />
+                毎日の活動のエネルギー源になります。
+              </p>
             </div>
             <div className="detail">
               <figure>
-                <img src="/images/beverage.jpg" alt="" />
+                <Img
+                  fluid={data.beverage.childImageSharp.fluid}
+                  alt=""
+                  style={{ height: "100%" }}
+                />
+                {/* <img src="/images/beverage.jpg" alt="" /> */}
               </figure>
               <h3>飲み物</h3>
               <p>BEVERAGE</p>
-              <p>リラックスするのに欠かせない飲み物。<br />お気に入りの一杯はありますか？</p>
+              <p>
+                リラックスするのに欠かせない飲み物。
+                <br />
+                お気に入りの一杯はありますか？
+              </p>
             </div>
           </div>
         </div>
@@ -165,41 +95,56 @@ const IndexPage = () => {
       <section className="photo">
         <h2 className="sr-only">Photo</h2>
         <figure>
-          <img src="/images/berry.jpg" alt="赤く熟したベリー" />
+          <Img
+            fluid={data.berry.childImageSharp.fluid}
+            alt="赤く熟したベリー"
+            style={{ height: "100%" }}
+          />
+          {/* <img src="/images/berry.jpg" alt="赤く熟したベリー" /> */}
         </figure>
       </section>
-      <footer className="footer">
-        <div className="container">
-          <div className="site">
-            <a href="base-index.html">
-              <img src="/images/logo-w.svg" alt="ESSENTIALS" />
-              <p>おいしい食材と食事を探求するサイト</p>
-            </a>
-          </div>
-          <ul className="sns">
-            <li>
-              <a href="https://twitter.com/">
-                <i className="fab fa-twitter" />
-                <span className="sr-only">Twitter</span>
-              </a>
-            </li>
-            <li>
-              <a href="https://facebook.com/">
-                <i className="fab fa-facebook-square" />
-                <span className="sr-only">Facebook</span>
-              </a>
-            </li>
-            <li>
-              <a href="http://instagram.com/">
-                <i className="fab fa-instagram" />
-                <span className="sr-only">Instagram</span>
-              </a>
-            </li>
-          </ul>
-        </div>
-      </footer>
-    </div>
-  )
-}
+    </Layout>
+  );
+};
 
-export default IndexPage
+export default IndexPage;
+
+export const query = graphql`
+  query {
+    hero: file(relativePath: { eq: "hero.jpg" }) {
+      childImageSharp {
+        fluid(maxWidth: 1600) {
+          ...GatsbyImageSharpFluid_withWebp_tracedSVG
+        }
+      }
+    }
+    fruit: file(relativePath: { eq: "fruit.jpg" }) {
+      childImageSharp {
+        fluid(maxWidth: 320) {
+          ...GatsbyImageSharpFluid_withWebp_tracedSVG
+        }
+      }
+    }
+    grain: file(relativePath: { eq: "grain.jpg" }) {
+      childImageSharp {
+        fluid(maxWidth: 320) {
+          ...GatsbyImageSharpFluid_withWebp_tracedSVG
+        }
+      }
+    }
+    beverage: file(relativePath: { eq: "beverage.jpg" }) {
+      childImageSharp {
+        fluid(maxWidth: 320) {
+          ...GatsbyImageSharpFluid_withWebp_tracedSVG
+        }
+      }
+    }
+    berry: file(relativePath: { eq: "berry.jpg" }) {
+      childImageSharp {
+        fluid(maxWidth: 1600) {
+          ...GatsbyImageSharpFluid_withWebp_tracedSVG
+        }
+      }
+    }
+  }
+`;
