@@ -10,11 +10,12 @@ import { faUtensils, faCheckSquare } from "@fortawesome/free-solid-svg-icons"
 import SEO from "../components/seo"
 
 // markup
-export default ({ data }) => (
+export default ({ data, location }) => (
   <Layout>
     <SEO
       pagetitle="ESSENTIALSについて"
       pagedescription="食べ物についての情報を発信しているサイトです。"
+      pagepath={location.pathname}
     />
     <div className="eyecatch">
       <figure>
