@@ -24,7 +24,7 @@ const IndexPage = ({ data }) => {
             There is no love sincerer than
             <br /> the love of food.
           </h1>
-          <p>食物を愛するよりも誠実な愛はない ― バーナード・ショー</p>
+          <p>食物を愛するよりも誠実な愛はない ― バーナード・ショー2</p>
         </div>
         <div className="wave">
           <svg
