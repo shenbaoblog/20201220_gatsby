@@ -27,7 +27,7 @@ export default () => {
     <footer className="footer">
       <div className="container">
         <div className="site">
-          <Link href={`/`} >
+          <Link to={`/`} >
           {/* <a href="base-index.html"> */}
             {/* <img src="/images/logo-w.svg" alt="ESSENTIALS" /> */}
             <svg
