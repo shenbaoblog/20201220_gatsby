@@ -77,12 +77,13 @@ export default ({ data, pageContext, location }) => (
             {data.contentfulGatsbyBlogPost.publishDateJP}
           </time>
           <div className="cat">
-            <i className="far fa-folder-open" />
             <FontAwesomeIcon icon={faFolderOpen} />
             <ul>
               {data.contentfulGatsbyBlogPost.category.map((cat) => (
                 <li className={cat.gatsbyCategorySlug} key={cat.id}>
-                  {cat.gatsbyCategory}
+                  <Link to={`/cat/${cat.gatsbyCategorySlug}/`}>
+                    {cat.gatsbyCategory}
+                  </Link>
                 </li>
               ))}
             </ul>
