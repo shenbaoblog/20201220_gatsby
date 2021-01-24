@@ -1,5 +1,5 @@
 import * as React from "react";
-import { graphql } from "gatsby";
+import { graphql, Link } from "gatsby";
 import Img from "gatsby-image";
 import Layout from "../components/layout";
 
@@ -103,6 +103,55 @@ const IndexPage = ({ data }) => {
           {/* <img src="/images/berry.jpg" alt="赤く熟したベリー" /> */}
         </figure>
       </section>
+
+      <section>
+        <div className="container">
+          <h2 className="sr-only">RECENT POSTS</h2>
+          <div className="posts">
+            {data.allContentfulGatsbyBlogPost.edges.map(({ node }) => (
+              <article className="post" key={node.id}>
+                <Link to={`/blog/post/${node.slug}`}>
+                  <figure>
+                    <Img
+                      fluid={node.eyecatch.fluid}
+                      alt={node.eyecatch.description}
+                      style={{ height: "100%" }}
+                    />
+                  </figure>
+                  <h3>{node.title}</h3>
+                </Link>
+              </article>
+            ))}
+          </div>
+
+          {/* ページネーション */}
+          {/* <ul className="pagenation">
+            {!pageContext.isFirst && (
+              <li className="prev">
+                <Link
+                  to={
+                    pageContext.currentPage === 2
+                      ? `/blog/`
+                      : `/blog/${pageContext.currentPage - 1}/`
+                  }
+                  rel="prev"
+                >
+                  <FontAwesomeIcon icon={faChevronLeft} />
+                  <span>前のページ</span>
+                </Link>
+              </li>
+            )}
+            {!pageContext.isLast && (
+              <li className="next">
+                <Link to={`/blog/${pageContext.currentPage + 1}/`} rel="next">
+                  <span>次のページ</span>
+                  <FontAwesomeIcon icon={faChevronRight} />
+                </Link>
+              </li>
+            )}
+          </ul> */}
+        </div>
+      </section>
     </Layout>
   );
 };
@@ -143,6 +192,25 @@ export const query = graphql`
       childImageSharp {
         fluid(maxWidth: 1600) {
           ...GatsbyImageSharpFluid_withWebp_tracedSVG
+        }
+      }
+    }
+    allContentfulGatsbyBlogPost(
+      sort: { fields: publishDate, order: DESC }
+      limit: 4
+      skip: 0
+    ) {
+      edges {
+        node {
+          title
+          id
+          slug
+          eyecatch {
+            fluid(maxWidth: 573) {
+              ...GatsbyContentfulFluid_withWebp
+            }
+            description
+          }
         }
       }
     }
