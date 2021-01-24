@@ -24,11 +24,12 @@ export default () => (
         <ul>
           <li>
             <Link to={`/`}>TOP</Link>
-            {/* <a href="base-index.html">TOP2</a> */}
           </li>
           <li>
             <Link to={`/about/`}>ABOUT</Link>
-            {/* <a href="base-about.html">ABOUT</a> */}
+          </li>
+          <li>
+            <Link to={`/blog/`}>BLOG</Link>
           </li>
         </ul>
       </nav>

@@ -41,18 +41,18 @@ svg {
 	vertical-align: bottom;
 }
 
-.nav, 
-.catch h1, 
-.food h2, 
+.nav,
+.catch h1,
+.food h2,
 .detail p:first-of-type,
 .info .subtitle {
 	font-family: 'Avenir Next', 'Segoe UI', Helvetica, sans-serif;
 }
 
 .sr-only {
-	border: 0; 
-	clip: rect(0 0 0 0); 
-	height: 1px; 
+	border: 0;
+	clip: rect(0 0 0 0);
+	height: 1px;
 	margin: -1px;
 	overflow: hidden;
 	padding: 0;
@@ -497,6 +497,11 @@ svg {
 	margin-bottom: 20px;
 }
 
+.posts figure {
+	max-height: 100%;
+	height: 150px;
+}
+
 .posts img {
 	height: 150px;
 	object-fit: cover;
@@ -509,6 +514,10 @@ svg {
 @media (min-width: 768px) {
 	.posts h3 {
 		font-size: 16px;
+	}
+
+	.posts figure {
+		height: 200px;
 	}
 
 	.posts img {
