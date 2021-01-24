@@ -30,9 +30,6 @@ export default () => (
             <Link to={`/about/`}>ABOUT</Link>
             {/* <a href="base-about.html">ABOUT</a> */}
           </li>
-          <li>
-            <Link to={'/blog/'}>BLOG</Link>
-          </li>
         </ul>
       </nav>
     </div>
