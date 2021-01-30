@@ -101,3 +101,23 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
     });
   });
 };
+
+
+const {
+  documentToPlainTextString,
+} = require("@contentful/rich-text-plain-text-renderer");
+
+exports.onCreateNode = ({ node, actions }) => {
+  const { createNodeField } = actions;
+
+  if (node.internal.type === `contentfulGatsbyBlogPostContentsRichTextNode`) {
+    createNodeField({
+      node,
+      name: `description`,
+      value: `${documentToPlainTextString(JSON.parse(JSON.stringify(node.content))).slice(
+        0,
+        70
+      )}...`,
+    });
+  }
+};

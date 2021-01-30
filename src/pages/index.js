@@ -2,6 +2,7 @@ import * as React from "react";
 import { graphql, Link } from "gatsby";
 import Img from "gatsby-image";
 import Layout from "../components/layout";
+import Image from "../components/image"
 
 import SEO from "../components/seo";
 
@@ -11,14 +12,7 @@ const IndexPage = ({ data }) => {
     <Layout>
       <SEO />
       <section className="hero">
-        <figure>
-          <Img
-            fluid={data.hero.childImageSharp.fluid}
-            alt=""
-            style={{ height: "100%" }}
-          />
-          {/* <img src="/images/hero.jpg" alt="" /> */}
-        </figure>
+        <Image filename="hero.jpg" alt="" style={{ height: "100%" }} />
         <div className="catch">
           <h1>
             There is no love sincerer than
@@ -48,9 +42,7 @@ const IndexPage = ({ data }) => {
           </h2>
           <div className="details">
             <div className="detail">
-              <figure>
-                <img src="/images/fruit.jpg" alt="" />
-              </figure>
+              <Image filename="fruit.jpg" alt="" />
               <h3>フルーツ</h3>
               <p>FRUIT</p>
               <p>
@@ -60,10 +52,7 @@ const IndexPage = ({ data }) => {
               </p>
             </div>
             <div className="detail">
-              <figure>
-                <Img fluid={data.grain.childImageSharp.fluid} alt="" />
-                {/* <img src="/images/grain.jpg" alt="" /> */}
-              </figure>
+              <Image filename="grain.jpg" alt="" />
               <h3>穀物</h3>
               <p>GRAIN</p>
               <p>
@@ -73,14 +62,7 @@ const IndexPage = ({ data }) => {
               </p>
             </div>
             <div className="detail">
-              <figure>
-                <Img
-                  fluid={data.beverage.childImageSharp.fluid}
-                  alt=""
-                  style={{ height: "100%" }}
-                />
-                {/* <img src="/images/beverage.jpg" alt="" /> */}
-              </figure>
+              <Image filename="beverage.jpg" alt="" />
               <h3>飲み物</h3>
               <p>BEVERAGE</p>
               <p>
@@ -94,14 +76,11 @@ const IndexPage = ({ data }) => {
       </section>
       <section className="photo">
         <h2 className="sr-only">Photo</h2>
-        <figure>
-          <Img
-            fluid={data.berry.childImageSharp.fluid}
-            alt="赤く熟したベリー"
-            style={{ height: "100%" }}
-          />
-          {/* <img src="/images/berry.jpg" alt="赤く熟したベリー" /> */}
-        </figure>
+        <Image
+          filename="berry.jpg"
+          alt="赤く熟したベリー"
+          style={{ height: "100%" }}
+        />
       </section>
 
       <section>
